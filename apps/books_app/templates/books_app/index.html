@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+	{%load static%}
+	<link rel="stylesheet" type="text/css" href="{% static 'books_app/css/style.css'%}">
+</head>
+<body>
+<h1>Welcome!</h1>
+{%for message in messages%}
+	<h3 class="error">{{message}}</h3>
+{%endfor%}
+<div>
+	<h3>Register</h3>
+	<form action="/users/register" method="POST">
+		{%csrf_token%}
+		<p>Name: <input type="text" name="name"></p>
+		<p>Alias: <input type="text" name="alias"></p>
+		<p>Email: <input type="text" name="email"></p>
+		<p>Password: <input type="password" name="pass"></p>
+		<p>Confirm PW: <input type="password" name="con_pass"></p>
+		<input type="submit" value="Register">
+	</form>
+</div>
+<div>
+	<h3>Login</h3>
+	<form action="users/login" method="POST">
+		{%csrf_token%}
+		<p>Email: <input type="text" name="email"></p>
+		<p>Password: <input type="password" name="pass"></p>
+		<input type="submit" value="Login">
+	</form>
+</div>
+</body>
+</html>

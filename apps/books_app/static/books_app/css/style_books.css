@@ -1,0 +1,28 @@
+.column {
+	display: inline-block;
+	width: 40%;
+	vertical-align: top;
+}
+#booklist {
+	border: 1px solid black;
+}
+.book {
+	margin-left: 2em;
+}
+.review {
+	margin-left: 2em;
+}
+nav h3, nav div{
+	display: inline-block;
+}
+#rightnav {
+	margin-left: 50%;
+	margin-right: 0px;
+}
+li {
+	list-style: none;
+}
+#booklist {
+	height: 20em;
+	overflow: scroll;
+}

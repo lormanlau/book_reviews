@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Book and Review</title>
+	{%load static%}
+	<link rel="stylesheet" type="text/css" href="{% static 'books_app/css/style_add_book.css'%}">
+</head>
+<body>
+<nav>
+	<a href="/books">Home</a>
+	<a href="/users/logout">Logout</a>
+</nav>
+<h1>{{book.title}}</h1>
+<p>Author: {{book.author}}</p>
+<div class="column">
+	<h3>Reviews:</h3>
+	<div class="container">
+	{% for review in reviews %}
+		<p>Rating: {{review.rating}}</p>
+		<p><a href="/users/{{review.user.id}}">{{review.user.alias}}</a> says: {{review.text}}</p>
+		<p>Posted on {{review.created_at}} 
+		{%if USERISUSER%}
+			<a href="">Delete this Review</a>
+		{%endif%}
+		</p>
+	{% endfor %}
+	</div>
+</div>
+<div class="column">
+	<h3>Add a Review:</h3>
+	<form action='/books/{{book.id}}/addreview' method="POST">
+		{%csrf_token%}
+		<textarea name="text"></textarea>
+		<h3>Rating: 
+		<select name="rating">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		</select>
+		stars.
+		</h3>
+		<input type="submit" value="Submit Review">
+	</form>
+</div>
+</body>
+</html>

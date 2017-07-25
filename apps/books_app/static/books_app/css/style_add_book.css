@@ -1,0 +1,21 @@
+nav {
+	display: inline-block;
+	margin-right: 0px;
+	margin-left: 50%; 
+}
+
+.container {
+	margin-left: 2em;
+}
+
+.review *{
+	display: inline-block;
+	vertical-align: top;
+	margin: 0;
+}
+
+.column {
+	display: inline-block;
+	width: 40%;
+	vertical-align: top;
+}
